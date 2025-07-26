@@ -35,7 +35,7 @@ switch (true) {
       }рублей`
     );
     break;
-  case 15000 >= fullPrice:
+  case 15000 >= fullPrice && fullPrice == 0:
     console.log(
       `Скидка не предусмотрена. Итоговая сумма: ${servicePercentPrice}рублей`
     );
