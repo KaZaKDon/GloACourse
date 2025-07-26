@@ -16,7 +16,7 @@ const service2 = prompt("Какой еще дополнительный тип �
 let servicePrice2 = +prompt("Сколько это будет стоить?");
 
 fullPrice = screenPrice + servicePrice1 + servicePrice2;
-servicePercentPrice = fullPrice - fullPrice * (rollback / 100);
+servicePercentPrice = Math.ceil(fullPrice - fullPrice * (rollback / 100));
 
 console.log(fullPrice);
 
