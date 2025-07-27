@@ -33,30 +33,44 @@ function getServicePercentPrices(fullPrice, rollback) {
   servicePercentPrice = Math.ceil(fullPrice - fullPrice * (rollback / 100));
 }
 
-function getRollbackMessage(fullPrice) {
-  switch (true) {
-    case fullPrice > 30000:
-      fullPrice = fullPrice - (fullPrice / 10) * 100;
-      console.log("Даем скидку 10%.");
-      break;
-    case 15000 < fullPrice && fullPrice < 30000:
-      fullPrice = fullPrice - (fullPrice / 5) * 100;
-      console.log("Даем скидку 5%.");
-      break;
-    case 15000 >= fullPrice && fullPrice == 0:
-      console.log("Скидка не предусмотрена.");
-      break;
-    default:
-      console.log("Что то пошло не так");
+const getRollbackMessage = function (price) {
+  if (price >= 30000) {
+    return "Даем скидку 10%.";
+  } else if (15000 <= price && price < 30000) {
+    return "Даем скидку 5%.";
+  } else if (15000 >= price && price >= 0) {
+    return "Скидка не предусмотрена.";
+  } else {
+    return "Что то пошло не так";
   }
+};
+
+const getRollbackPrice = function (price) {
+  if (price >= 30000) {
+    return (fullPrice = price - (price * 10) / 100);
+  } else if (15000 <= price && price < 30000) {
+    return (fullPrice = price - (price * 5) / 100);
+  } else if (15000 >= price && price >= 0) {
+    return fullPrice;
+  } else {
+    return "Что то пошло не так";
+  }
+};
+
+function showTypeOf(variable) {
+  console.log(variable, typeof variable);
 }
 
 getAllServicePrices(servicePrice1, servicePrice2);
 getFullPrice(screenPrice, allServicePrices);
+getRollbackPrice(fullPrice);
 getTitle(title);
 getServicePercentPrices(fullPrice, rollback);
-getRollbackMessage(fullPrice);
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
 
+console.log(getRollbackMessage(fullPrice));
 console.log(`стоимости верстки и стоимости дополнительных услуг ${fullPrice}`);
 console.log(screens);
 console.log(title);
