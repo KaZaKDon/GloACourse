@@ -21,6 +21,7 @@ eBtn.addEventListener("click", () => {
 
 range.addEventListener("input", () => {
   rangeSpan.textContent = range.value + "px";
-  circle.style.width = `${range.value * 2}px`;
-  circle.style.height = `${range.value * 2}px`;
+  let rangeAdd = (150 * range.value) / 100;
+  circle.style.width = `${rangeAdd}px`;
+  circle.style.height = `${rangeAdd}px`;
 });
