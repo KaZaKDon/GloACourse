@@ -11,7 +11,7 @@ const saveToDo = function () {
     text: headerInput.value,
     completed: false,
   };
-  if (headerInput.value == "" || headerInput.value == "Какие планы?") {
+  if (headerInput.value.trim() == "" || headerInput.value == "Какие планы?") {
     alert('ВВедите задачу!')
     return
   }
