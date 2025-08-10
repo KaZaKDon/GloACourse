@@ -4,7 +4,7 @@ const todoList = document.querySelector(".todo-list");
 const todoCompleted = document.querySelector(".todo-completed");
 
 
-const todoData = JSON.parse(localStorage.getItem('todoData')) || [];
+const todoData = JSON.parse(localStorage.getItem('text')) || [];
 
 const saveToDo = function () {
   const newToDo = {
@@ -16,8 +16,12 @@ const saveToDo = function () {
     return
   }
   todoData.push(newToDo);
-  localStorage.setItem('text', JSON.stringify(todoData));
+ saveToDoApp()
   headerInput.value = "";
+}
+
+const saveToDoApp = function () {
+  localStorage.setItem('text', JSON.stringify(todoData));
 }
 const render = function () {
   todoList.innerHTML = "";
@@ -54,7 +58,13 @@ const checkToDo = function () {
   }
 }
 
+const deleteTodo = function(index) {
+  todoData.splice(todoData.indexOf(index), 1)
+  localStorage.removeItem('text')
+  saveToDoApp()
+}
 
+render()
 
 todoControl.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -63,9 +73,6 @@ todoControl.addEventListener("submit", function (event) {
   render();
 });
 
-const deleteTodo = function(index) {
-  todoData.splice(todoData.indexOf(index), 1)
-  
-}
+
 
 
