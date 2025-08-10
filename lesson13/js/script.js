@@ -16,13 +16,15 @@ const saveToDo = function () {
     return
   }
   todoData.push(newToDo);
- saveToDoApp()
+  saveToDoApp()
   headerInput.value = "";
 }
 
 const saveToDoApp = function () {
   localStorage.setItem('text', JSON.stringify(todoData));
 }
+
+
 const render = function () {
   todoList.innerHTML = "";
   todoCompleted.innerHTML = "";
