@@ -52,7 +52,6 @@ const appData = {
       const select = screen.querySelector("select");
       const input = screen.querySelector("input");
       const selectName = select.options[select.selectedIndex].textContent;
-      console.log(appData.screens);
 
       if (selectName == "Тип экранов" || +input.value == 0) {
         alert("Не выбраны ЭКРАНЫ или их количество");
@@ -123,20 +122,6 @@ const appData = {
     fullTotalCount.value = appData.fullPrice;
     totalCountRollback.value = appData.fullPriceRollback;
   },
-  /*getFullPrice: function (screenPrice, allServicePrices) {
-    appData.fullPrice = +screenPrice + allServicePrices;
-  },
-  getRollbackPrice: function (price) {
-    if (price >= 30000) {
-      appData.fullPrice = price - (price * 10) / 100;
-    } else if (15000 <= price && price < 30000) {
-      appData.fullPrice = price - (price * 5) / 100;
-    } else if (15000 >= price && price >= 0) {
-      appData.fullPrice;
-    } else {
-      return "Что то пошло не так";
-    }
-  },*/
   logger: function () {
     console.log(
       `стоимости верстки и стоимости дополнительных услуг, минус скидка ${appData.fullPrice}`
@@ -165,10 +150,7 @@ const appData = {
     appData.showResult();
     appData.addRollback();
 
-    /*appData.getFullPrice(appData.screenPrice, appData.allServicePrices);
-    appData.getRollbackPrice(appData.fullPrice);
-    appData.getTitle(appData.title);
-    appData.getServicePercentPrices(appData.fullPrice, appData.rollback);
+    /*
     appData.logger();*/
   },
 };
