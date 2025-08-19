@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление растениями</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Управление растениями</h1>
+    <form id="plantForm">
+        <input type="text" id="name" placeholder="Название" required>
+        <input type="text" id="description" placeholder="Описание" required>
+        <input type="text" id="species" placeholder="Вид" required>
+        <input type="number" id="age" placeholder="Возраст" required>
+        <select id="plantType" required>
+            <option value="">Выберите тип растения</option>
+            <option value="fern">Папоротник</option>
+            <option value="spruce">Ель обыкновенная</option>
+        </select>
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <table id="plantTable">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Вид</th>
+                <th>Возраст</th>
+                <th>Доп. свойства</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
