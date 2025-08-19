@@ -1,9 +1,9 @@
 class Plant {
     constructor(name, description, species, age) {
-        this.name = name; // название
-        this.description = description; // описание
-        this.species = species; // вид
-        this.age = age; // возраст
+        this.name = name;
+        this.description = description;
+        this.species = species;
+        this.age = age;
     }
 
     getName() {
@@ -13,28 +13,22 @@ class Plant {
     setName(name) {
         this.name = name;
     }
-
-    // Другие геттеры и сеттеры...
 }
 
 class Fern extends Plant {
     constructor(name, description, species, age, height, habitat) {
         super(name, description, species, age);
-        this.height = height; // высота
-        this.habitat = habitat; // место обитания
+        this.height = height;
+        this.habitat = habitat;
     }
-
-    // Дополнительные методы...
 }
 
 class Spruce extends Plant {
     constructor(name, description, species, age, crownSize, usage) {
         super(name, description, species, age);
-        this.crownSize = crownSize; // размер кроны
-        this.usage = usage; // область применения
+        this.crownSize = crownSize; 
+        this.usage = usage; 
     }
-
-    // Дополнительные методы...
 }
 
 const plantArray = JSON.parse(localStorage.getItem('plants')) || [];
@@ -84,5 +78,4 @@ function deletePlant(index) {
     renderTable();
 }
 
-// Отображение данных при загрузке страницы
 renderTable();
