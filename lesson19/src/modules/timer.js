@@ -2,6 +2,8 @@ const timer = (deadline) => {
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
+    const timerInterval = setInterval(updateClock, 1000);
+
 
     const formatTime = (time) => {
         return time < 10 ? `0${time}` : time;
@@ -31,18 +33,16 @@ const timer = (deadline) => {
         timerSeconds.textContent = formatTime(getTime.seconds);
 
         if (getTime.timeRemaining <= 0) {
-            clearInterval(timerInterval); // Остановить таймер, если время истекло
+            clearInterval(timerInterval);
         }
     };
-
-    // Проверяем, если дата уже прошла, устанавливаем 00:00:00
+    
     if (getTimeRemaining().timeRemaining <= 0) {
         timerHours.textContent = '00';
         timerMinutes.textContent = '00';
         timerSeconds.textContent = '00';
     } else {
-        // Запускаем таймер
-        const timerInterval = setInterval(updateClock, 1000);
+        timerInterval()
     }
 
     updateClock()
