@@ -41,8 +41,8 @@ const slider = () => {
         nextSlide(dots, currentSlide, 'dot-active')
     }
 
-    const startSlide = () => {
-        interval = setInterval(autoSlide, 2000)
+    const startSlide = (timer) => {
+        interval = setInterval(autoSlide, timer)
     }
 
     const stopSlide = () => {
@@ -88,15 +88,15 @@ const slider = () => {
         if (e.target.matches('.dot, .portfolio-btn')) {
             stopSlide()
         }
-    },true);
+    }, true);
 
     sliderBlock.addEventListener('mouseleave', (e) => {
         if (e.target.matches('.dot, .portfolio-btn')) {
-            startSlide()
+            startSlide(2000)
         }
-    },true)
+    }, true)
 
-    startSlide()
+    startSlide(2000)
 }
 
 export default slider
